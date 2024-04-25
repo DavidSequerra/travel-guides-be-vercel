@@ -26,7 +26,7 @@ const googleAPIKey = process.env.GOOGLE_MAPS_API_KEY;
 const openai = new OpenAI({
   apiKey: apiKey,
 });
-
+let verto
 const requestedFormatFromGPT = [
   {
     cityName: "",
