@@ -7,19 +7,19 @@ const app = express();
 app.use(require("cors")());
 app.use(express.json());
 
-app.use("/signup", require("./routes/users/signup.js"));
-app.use("/login", require("./routes/users/login.js"));
-app.use("/profile", require("./routes/users/profile.js"));
-app.use("/users", require("./routes/users/user.js"))
-app.use("/gpt", require("./routes/aiAPIs/apis.js"))
-app.use("/addAttraction", require("./routes/attractions/add.js"));
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-  next();
+app.use("/api/signup", require("./routes/users/signup.js"));
+app.use("/api/login", require("./routes/users/login.js"));
+app.use("/api/profile", require("./routes/users/profile.js"));
+app.use("/api/users", require("./routes/users/user.js"));
+app.use("/api/gpt", require("./routes/aiAPIs/apis.js"));
+app.use("/api/addAttraction", require("./routes/attractions/add.js"));
+// app.use((req, res, next) => {
+//   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+//   next();
+// });
+app.get("/api/", (req, res) => {
+  res.json({ message: "hello Worls" });
 });
-app.get("/", (req, res) => {
-  res.json({message: "hello Worls"})
-})
 
 const hostname = "0.0.0.0";
 const port = 3001;
