@@ -17,6 +17,9 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   next();
 });
+app.get("/", (req, res) => {
+  res.json({message: "hello Worls"})
+})
 
 const hostname = "0.0.0.0";
 const port = 3001;
